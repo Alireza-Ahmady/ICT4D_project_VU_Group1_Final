@@ -3,7 +3,6 @@ The Malaria Management application is an interactive voice response (IVR) system
 
 # Installation
 1. Clone the repository:
-git clone https://github.com/Alireza-Ahmady/ICT4D_project_VU_Group1_Final.git
 2. Create and activate a virtual environment:
 python3 -m venv env
 source env/bin/activate
