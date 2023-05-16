@@ -2,13 +2,9 @@
 The Malaria Management application is an interactive voice response (IVR) system designed for registering Malaria cases. The system serves as an interactive tool to help users assess their health and register malaria cases. The application guides users through a series of voice prompts and options in two languages, English and French.
 
 # Installation
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/your-username/your-project.git
-Create and activate a virtual environment:
-bash
-Copy code
+1. Clone the repository:
+git clone https://github.com/Alireza-Ahmady/ICT4D_project_VU_Group1_Final.git
+2. Create and activate a virtual environment:
 python3 -m venv env
 source env/bin/activate
 Install dependencies from the requirements.txt file:
