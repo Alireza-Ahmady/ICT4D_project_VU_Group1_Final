@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
+  <form>
+    <block>
+      <prompt>
+        <audio src="http://51.104.163.1:8000/general_info_french.wav"/>
+      </prompt>
+    </block>
+    <field name="gender">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/gender_french.wav"/>
+      </prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="age">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/age_french.wav"/>
+      </prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="location">
+      <prompt>
+        <audio src="http://51.104.163.1:8000/select_commune.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_1.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_2.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_3.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_4.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_5.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_6.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_7.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_8.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_9.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_10.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_11.wav"/>
+        <audio src="http://51.104.163.1:8000/option_french_12.wav"/>		
+      </prompt>
+        <option value="1" dtmf="1">Diabaly</option>
+        <option value="2" dtmf="2">Dogofry</option>
+        <option value="3" dtmf="3">Kala Siguida</option>
+        <option value="4" dtmf="4">Mariko</option>
+        <option value="5" dtmf="5">Nampalari</option>
+        <option value="6" dtmf="6">Niono</option>
+        <option value="7" dtmf="7">Pogo</option>
+        <option value="8" dtmf="8">Siribala</option>
+        <option value="9" dtmf="9">Siribala-Boundy</option>
+        <option value="10" dtmf="10">Sokolo</option>
+        <option value="11" dtmf="11">Toridaga-Ko</option>
+        <option value="12" dtmf="12">Yeredon Saniona</option>		
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <var name="lang_" expr="'2'"/>
+    <filled>
+      <catch event="error">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/error.wav"/>
+      </prompt>
+      </catch>
+      <submit next="http://51.104.163.1:8000/register_case/" method="post" namelist="gender age location lang_" fetchtimeout="45s"/>
+      <prompt>Merci pour vos informations.</prompt>
+    </filled>
+  </form>
+</vxml>

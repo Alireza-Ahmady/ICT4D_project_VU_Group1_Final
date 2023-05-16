@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
+  <form>
+    <block>
+      <prompt>
+        Please take a moment to provide us with some information about yourself.
+      </prompt>
+    </block>
+    <field name="gender">
+      <prompt>Please enter your gender, followed by the pound key. Press 1 for male and 2 for female.</prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="age">
+      <prompt>Please enter your age, followed by the pound key.</prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="location">
+     <prompt>
+      Please select your location, followed by the pound key.
+      <enumerate>
+	<break time="1000"/>
+	For
+	<value expr="_prompt"/>
+	, Press
+	<value expr="_dtmf"/>
+      </enumerate>
+     </prompt>
+	<option value="1" dtmf="1">Diabaly</option>
+	<option value="2" dtmf="2">Dogofry</option>
+	<option value="3" dtmf="3">Kala Siguida</option>
+	<option value="4" dtmf="4">Mariko</option>
+	<option value="5" dtmf="5">Nampalari</option>
+	<option value="6" dtmf="6">Niono</option>
+	<option value="7" dtmf="7">Pogo</option>
+	<option value="8" dtmf="8">Siribala</option>
+	<option value="9" dtmf="9">Siribala-Boundy</option>
+	<option value="10" dtmf="10">Sokolo</option>
+	<option value="11" dtmf="11">Toridaga-Ko</option>
+	<option value="12" dtmf="12">Yeredon Saniona</option>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <var name="lang_" expr="'1'"/>
+    <filled>
+      <catch event="error">
+        <prompt>
+          Sorry, an error occurred. Please try again later.
+        </prompt>
+      </catch>
+      <submit next="http://51.104.163.1:8000/register_case/" method="post" namelist="gender age location lang_" fetchtimeout="45s"/>
+      <prompt>Thank you for your input.</prompt>
+    </filled>
+  </form>
+</vxml>
+
