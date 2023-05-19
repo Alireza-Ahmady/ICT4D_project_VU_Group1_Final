@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
+
+  <form id="language">
+    <block>
+     <prompt>
+    Choose your language. Press 1 for English.
+    <audio src="http://51.104.163.1:8000/press_for_french.wav"/>
+     </prompt>
+    </block>
+  <field name="lang">
+      <grammar src="builtin:dtmf/digits" />
+      <prompt />
+      <filled>
+        <if cond="lang=='1'">
+          <goto next="#english"/>
+        </if>
+        <if cond="lang=='2'">
+          <goto next="#french"/>
+        </if>
+        <else>
+          <prompt />
+          <goto next="#language"/>
+        </else>
+      </filled>
+    </field>
+  </form>
+  <form id="french">
+    <block>
+      <prompt>
+    <audio src="http://51.104.163.1:8000/menu_french_v2.wav"/>
+      </prompt>
+    </block>
+    <field name="userChoice">
+      <grammar src="builtin:dtmf/digits" />
+      <prompt />
+      <filled>
+        <if cond="userChoice=='1'">
+          <goto next="assessment_french.vxml"/>
+        </if>
+        <if cond="userChoice=='2'">
+          <goto next="register_french.vxml"/>
+        </if>
+        <if cond="userChoice=='3'">
+          <goto next="malaria_case_check_french.vxml"/>
+        </if>
+        <else>
+          <prompt />
+          <goto next="#french"/>
+        </else>
+      </filled>
+    </field>
+  </form>
+  <form id="english">
+    <block>
+      <prompt>
+        Welcome to the Malaria Management Application. 
+        Press 1 to undergo an assessment to see if you possibly have malaria.
+        Press 2 to register a malaria case.
+        Press 3 to check malaria cases in your area.
+      </prompt>
+    </block>
+    <field name="userChoice">
+      <grammar src="builtin:dtmf/digits" />
+      <prompt />
+      <filled>
+        <if cond="userChoice=='1'">
+          <goto next="assessment.vxml"/>
+        </if>
+        <if cond="userChoice=='2'">
+          <goto next="register.vxml"/>
+        </if>
+        <if cond="userChoice=='3'">
+          <goto next="malaria_case_check.vxml"/>
+        </if>
+        <else>
+          <prompt />
+          <goto next="#english"/>
+        </else>
+      </filled>
+    </field>
+  </form>
+</vxml>

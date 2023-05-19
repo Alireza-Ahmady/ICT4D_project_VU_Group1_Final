@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
+  <form>
+    <block>
+      <prompt>
+        Please answer the following questions to help us assess your health.
+      </prompt>
+    </block>
+    <field name="difficulty_breathing">
+      <prompt>Do you experience difficulty breathing? Press 1 for Yes and 2 for No.</prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="fever">
+      <prompt>Do you have a fever? Press 1 for Yes and 2 for No.</prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="chills">
+      <prompt>Do you have chills? Press 1 for Yes and 2 for No.</prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="muscle_pain">
+      <prompt>Do you have muscle pain? Press 1 for Yes and 2 for No.</prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="nausea">
+      <prompt>Do you have nausea? Press 1 for Yes and 2 for No.</prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <var name="lang_" expr="'1'"/>
+    <filled>
+      <catch event="error">
+        <prompt>
+          Sorry, an error occurred. Please try again later.
+        </prompt>
+      </catch>
+      <submit next="http://51.104.163.1:8000/calculate_risk/" method="post" namelist="difficulty_breathing fever chills muscle_pain nausea lang_" fetchtimeout="45s"/>
+      <prompt>Thank you for your input.</prompt>
+    </filled>
+  </form>
+</vxml>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
+  <form>
+    <block>
+      <prompt>
+        <audio src="http://51.104.163.1:8000/health_french.wav"/>
+      </prompt>
+    </block>
+    <field name="difficulty_breathing">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/difficulty_breathing_french.wav"/>
+      <audio src="http://51.104.163.1:8000/press_yes_no_french.wav"/>
+      </prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="fever">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/fever_french.wav"/>
+      <audio src="http://51.104.163.1:8000/press_yes_no_french.wav"/>
+      </prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="chills">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/chills_french.wav"/>
+      <audio src="http://51.104.163.1:8000/press_yes_no_french.wav"/>
+      </prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="muscle_pain">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/muscle_pain_french.wav"/>
+      <audio src="http://51.104.163.1:8000/press_yes_no_french.wav"/>
+      </prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <field name="nausea">
+      <prompt>
+      <audio src="http://51.104.163.1:8000/nausea_french.wav"/>
+      <audio src="http://51.104.163.1:8000/press_yes_no_french.wav"/>
+      </prompt>
+      <grammar src="builtin:dtmf/digits" />
+    </field>
+    <var name="lang_" expr="'2'"/>
+    <filled>
+      <catch event="error">
+        <prompt>
+          <audio src="http://51.104.163.1:8000/error_french.wav"/>
+        </prompt>
+      </catch>
+      <submit next="http://51.104.163.1:8000/calculate_risk/" method="post" namelist="difficulty_breathing fever chills muscle_pain nausea lang_" fetchtimeout="45s"/>
+      <prompt>Thank you for your input.</prompt>
+    </filled>
+  </form>
+</vxml>
